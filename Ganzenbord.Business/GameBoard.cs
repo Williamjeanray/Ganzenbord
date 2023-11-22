@@ -9,10 +9,11 @@ namespace Ganzenbord.Business
         //dependency, altijd boven de klasse
         private static IFactory _factory = new SquareFactory();
 
-        private static List<ISquare> squares = new List<ISquare>();
+        private static List<ISquare> squares = FillsSquares();
 
-        private static void FillsSquares()
+        private static List<ISquare> FillsSquares()
         {
+            var mylist = new List<ISquare>();
             for (int i = 0; i < 64; i++)
             {
                 ISquare square;
@@ -31,8 +32,9 @@ namespace Ganzenbord.Business
                 {
                     square = _factory.Create(i, SquareType.Standard);
                 }
-                squares.Add(square);
+                mylist.Add(square);
             }
+            return mylist;
         }
 
         public static ISquare GetSquare(int id)

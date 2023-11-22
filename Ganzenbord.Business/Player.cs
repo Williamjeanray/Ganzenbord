@@ -21,7 +21,7 @@ namespace Ganzenbord.Business
         public void MoveToPosition(int destination)
         {
             Position = destination;
-            ISquare destinationSquare = new Bridge();
+            ISquare destinationSquare = GameBoard.GetSquare(destination);
             destinationSquare.HandlePlayer(this);
         }
     }
