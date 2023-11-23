@@ -24,5 +24,11 @@ namespace Ganzenbord.Business
             ISquare destinationSquare = GameBoard.GetSquare(destination);
             destinationSquare.HandlePlayer(this);
         }
+
+        public void SkipTurn(int skipT)
+        {
+            throw new NotImplementedException();
+            //moet nog gemaakt worden
+        }
     }
 }

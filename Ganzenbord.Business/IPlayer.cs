@@ -13,5 +13,6 @@ namespace Ganzenbord.Business
 
         void Move(int diceRoll);
         void MoveToPosition(int v);
+        void SkipTurn(int skipT);
     }
 }
