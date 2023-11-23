@@ -22,10 +22,27 @@ namespace Ganzenbord.Business
                 {
                     square = _factory.Create(i, SquareType.Bridge);
                 }
+                else if (i == 19)
+                {
+                    square = _factory.Create(i, SquareType.Inn);
+                }
+                //31 moet nog gemaakt worden dit is "Well"
                 else if (i == 42)
                 {
                     square = _factory.Create(i, SquareType.Maze);
 
+                }
+                else if (i == 52)
+                {
+                    square = _factory.Create(i, SquareType.Prison);
+                }
+                else if (i == 58)
+                {
+                    square = _factory.Create(i, SquareType.Death);
+                }
+                else if (i == 63)
+                {
+                    square = _factory.Create(i, SquareType.End);
                 }
                 //Aanvullen
                 else
