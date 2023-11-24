@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 namespace Ganzenbord.Business.Tests
 {
     public class Tests

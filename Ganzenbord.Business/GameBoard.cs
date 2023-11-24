@@ -1,6 +1,5 @@
 ﻿using Ganzenbord.Business.Factory;
 using Ganzenbord.Business.Squares;
-using System.Collections.Generic;
 
 namespace Ganzenbord.Business
 {
@@ -30,7 +29,6 @@ namespace Ganzenbord.Business
                 else if (i == 42)
                 {
                     square = _factory.Create(i, SquareType.Maze);
-
                 }
                 else if (i == 52)
                 {
@@ -44,7 +42,7 @@ namespace Ganzenbord.Business
                 {
                     square = _factory.Create(i, SquareType.End);
                 }
-                //Aanvullen
+                //ToDo Well & Goose
                 else
                 {
                     square = _factory.Create(i, SquareType.Standard);

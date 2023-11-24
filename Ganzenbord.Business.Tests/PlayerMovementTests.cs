@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ganzenbord.Business.Tests
+﻿namespace Ganzenbord.Business.Tests
 {
     internal class PlayerMovementTests
     {
@@ -20,11 +14,8 @@ namespace Ganzenbord.Business.Tests
             //Act
             player.Move(player.DiceRoll);
 
-
             //Assert
             Assert.AreEqual(11, player.Position);
-           
-
         }
 
         [Test]
@@ -39,12 +30,10 @@ namespace Ganzenbord.Business.Tests
             //Act
             player.Move(player.DiceRoll);
 
-
             //Assert
             Assert.That(player.Position, Is.EqualTo(3));
-
-
         }
+
         [Test]
         public void WhenPlayerLandsOnBridge_ThenPlayerMovesTo12()
         {
@@ -56,12 +45,9 @@ namespace Ganzenbord.Business.Tests
 
             //Act
             player.Move(player.DiceRoll);
-            
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(12));
-
-
         }
     }
 }

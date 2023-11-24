@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ganzenbord.Business
+﻿namespace Ganzenbord.Business
 {
     public interface IPlayer
     {
@@ -12,7 +6,9 @@ namespace Ganzenbord.Business
         int DiceRoll { get; set; }
 
         void Move(int diceRoll);
+
         void MoveToPosition(int v);
+
         void SkipTurn(int skipT);
     }
 }

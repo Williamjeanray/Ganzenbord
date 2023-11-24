@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ganzenbord.Business.Squares
+﻿namespace Ganzenbord.Business.Squares
 {
     internal class StandardSquare : ISquare
     {
-        public int Id { get ; set ; }
+        public int Id { get; set; }
 
         public StandardSquare(int id)
         {
@@ -17,7 +11,6 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
-          
         }
     }
 }
