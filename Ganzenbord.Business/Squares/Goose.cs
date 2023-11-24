@@ -11,7 +11,17 @@
 
         public void HandlePlayer(IPlayer player)
         {
-            player.Move(player.DiceRoll);
+            if (player.IsMovingBack)
+            {
+                int reverse = -player.DiceRoll;
+                player.Move(reverse);
+            }
+            else
+            {
+                player.Move(player.DiceRoll);
+            }
+
+            player.IsMovingBack = false;
         }
     }
 }

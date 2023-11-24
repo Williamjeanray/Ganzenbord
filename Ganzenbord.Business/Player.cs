@@ -7,22 +7,29 @@ namespace Ganzenbord.Business
         public int Position { get; set; }
         public int DiceRoll { get; set; }
         public bool IsMovingBack { get; set; }
+        public int TurnsToSkip { get; set; } = 0;
 
         public void Move(int diceRoll)
         {
-            GameBoard board = GameBoard.GetSingleTonInstance();
-            int lastSquare = board.GetEndPosition();
-            int destination = Position + diceRoll;
-
-
-            if (destination > lastSquare)
+            if (TurnsToSkip > 0)
             {
-                int overschot = (destination - lastSquare);
-                destination = lastSquare - overschot;
-                IsMovingBack = true;
-     
+                TurnsToSkip--;
             }
+            else
+            {
+                GameBoard board = GameBoard.GetSingleTonInstance();
+                int lastSquare = board.GetEndPosition();
+                int destination = Position + diceRoll;
+
+                if (destination > lastSquare)
+                {
+                    int overschot = (destination - lastSquare);
+                    destination = lastSquare - overschot;
+                    IsMovingBack = true;
+                }
+
                 MoveToPosition(destination);
+            }
         }
 
         public void MoveToPosition(int destination)
@@ -35,8 +42,7 @@ namespace Ganzenbord.Business
 
         public void SkipTurn(int skipT)
         {
-            throw new NotImplementedException();
-            //moet nog gemaakt worden
+            TurnsToSkip = skipT;
         }
     }
 }
