@@ -6,17 +6,30 @@ namespace Ganzenbord.Business
     {
         public int Position { get; set; }
         public int DiceRoll { get; set; }
+        public bool IsMovingBack { get; set; }
 
         public void Move(int diceRoll)
         {
+            GameBoard board = GameBoard.GetSingleTonInstance();
+            int lastSquare = board.GetEndPosition();
             int destination = Position + diceRoll;
-            MoveToPosition(destination);
+
+
+            if (destination > lastSquare)
+            {
+                int overschot = (destination - lastSquare);
+                destination = lastSquare - overschot;
+                IsMovingBack = true;
+     
+            }
+                MoveToPosition(destination);
         }
 
         public void MoveToPosition(int destination)
         {
             Position = destination;
-            ISquare destinationSquare = GameBoard.GetSquare(destination);
+            GameBoard board = GameBoard.GetSingleTonInstance();
+            ISquare destinationSquare = board.GetSquare(destination);
             destinationSquare.HandlePlayer(this);
         }
 

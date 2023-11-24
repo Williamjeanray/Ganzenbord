@@ -49,5 +49,20 @@
             //Assert
             Assert.That(player.Position, Is.EqualTo(12));
         }
+        [Test]
+        public void WhenPlayerOverschootsEndzoneWalkBackAmountOfExtraMovement()
+        {
+            //Arrange
+
+            IPlayer player = new Player();
+            player.Position = 61;
+            player.DiceRoll = 5;
+
+            //Act
+            player.Move(player.DiceRoll);
+
+            //Assert
+            Assert.That(player.Position, Is.EqualTo(60));
+        }
     }
 }

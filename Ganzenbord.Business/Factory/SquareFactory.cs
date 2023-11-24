@@ -16,16 +16,22 @@ namespace Ganzenbord.Business.Factory
 
                 case SquareType.Death:
                     return new Death(id);
-                //Rest aanmaken (huiswerk)
+                
                 case SquareType.Inn:
                     return new Inn(id);
 
                 case SquareType.Prison:
                     return new Prison(id);
 
+                case SquareType.Goose:
+                    return new Goose(id);
+                
+                case SquareType.Well:
+                    return new Well(id);
+
                 case SquareType.End:
                     return new End(id);
-                //Well nog toevoegen (kan enkel met een 2de speler gebruikt worden)
+                
                 default:
                     return new StandardSquare(id);
             }
