@@ -17,6 +17,7 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log($"{player.Name} has gotten lost in the maze and moved back to square 39");
             player.MoveToPosition(39);
         }
     }

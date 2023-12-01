@@ -17,6 +17,7 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log($"{player.Name} has reached the inn and is spending 1 turn to rest up.");
             player.SkipTurn(1);
         }
     }

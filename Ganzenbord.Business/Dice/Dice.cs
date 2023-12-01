@@ -1,4 +1,6 @@
-﻿namespace Ganzenbord.Business
+﻿using Ganzenbord.Business.Loggers;
+
+namespace Ganzenbord.Business
 {
     public class Dice : IDice
     {

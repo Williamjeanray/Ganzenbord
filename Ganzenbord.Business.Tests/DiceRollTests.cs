@@ -20,7 +20,7 @@ namespace Ganzenbord.Business.Tests
         }
 
         [Test]
-        public void WhenDiceRollIs9_AndOneDiceIsFive_AndIsFirstTurn()
+        public void WhenSumOfDiceRollIs9_OnFirstTurn_With5And4_ThenPlayerShouldMoveTo26()
         {
             //Arrange
             Player player1 = new Player();
@@ -29,12 +29,28 @@ namespace Ganzenbord.Business.Tests
             Game game = new Game(new ConsoleLogger());
 
             //Act
-            game.StartGame();
+            player1.Move(dice, true);
 
             //Assert
-            Assert.That(game.Round, Is.EqualTo(1));
             Assert.That(dice.Sum, Is.EqualTo(9));
             Assert.That(player1.Position, Is.EqualTo(26));
+        }
+
+        [Test]
+        public void WhenSumOfDiceRollIs9_OnFirstTurn_With6And3_ThenPlayerShouldMoveTo53()
+        {
+            //Arrange
+            Player player1 = new Player();
+            player1.Position = 0;
+            int[] dice = { 6, 3 };
+            Game game = new Game(new ConsoleLogger());
+
+            //Act
+            player1.Move(dice, true);
+
+            //Assert
+            Assert.That(dice.Sum, Is.EqualTo(9));
+            Assert.That(player1.Position, Is.EqualTo(53));
         }
     }
 }

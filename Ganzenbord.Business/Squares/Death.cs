@@ -17,6 +17,7 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log($"Oh no! {player.Name} has died and been reset to square 0");
             player.MoveToPosition(0);
         }
     }

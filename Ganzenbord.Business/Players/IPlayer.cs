@@ -9,11 +9,11 @@
         int Position { get; set; }
         int TurnsToSkip { get; set; }
 
-        void Move(int[] diceRoll);
+        void Move(int[] diceRoll, bool isFirstTurn = false);
 
         void MoveToPosition(int destination);
 
-        void RollTheDice();
+        void RollTheDice(bool isFirstTurn);
 
         void SkipTurn(int skipT);
     }

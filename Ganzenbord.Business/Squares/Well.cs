@@ -17,6 +17,7 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log("Wooops. This has not been implemented yet. Bye bye!");
             throw new NotImplementedException();
         }
     }

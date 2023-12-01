@@ -12,9 +12,8 @@ namespace Ganzenbord.Business
             this.logger = logger;
         }
 
-        private int round;
-        public int Round
-        { get { return round; } }
+        private int round = 1;
+        public int Round { get { return round; } }
 
         private List<IPlayer> Players { get; set; } = new List<IPlayer>();
 
@@ -40,10 +39,11 @@ namespace Ganzenbord.Business
         private void PlayRound(List<IPlayer> players)
         {
             logger.Log($"Round {Round} starting.");
+            bool isFirstThrow = Round == 1;
 
             foreach (IPlayer player in players)
             {
-                player.RollTheDice();
+                player.RollTheDice(isFirstThrow);
             }
 
             Console.ReadLine();
@@ -52,7 +52,7 @@ namespace Ganzenbord.Business
 
         private void CreatePlayers(int amountOfPlayers)
         {
-            for (int i = 0; i < amountOfPlayers; i++)
+            for (int i = 1; i <= amountOfPlayers; i++)
             {
                 Players.Add(new Player
                 {

@@ -17,7 +17,9 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
-            _logger.Log($"{player.Name} hit a goose!");
+            string direction = player.IsMovingBack ? "backwards" : "forward"; // Shorthand for if else
+
+            _logger.Log($"{player.Name} hit a goose and is moving {player.DiceRoll.Sum()} {direction}!");
 
             if (player.IsMovingBack)
             {

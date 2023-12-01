@@ -17,6 +17,7 @@ namespace Ganzenbord.Business.Squares
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log($"{player.Name} has committed tax fraud with a smile and has to spend 3 turns in prison.");
             player.SkipTurn(3);
         }
     }
