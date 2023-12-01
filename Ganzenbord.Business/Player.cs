@@ -1,20 +1,24 @@
 ﻿using Ganzenbord.Business.Squares;
+using System.Numerics;
 
 namespace Ganzenbord.Business
 {
     public class Player : IPlayer
     {
         public int Position { get; set; }
-        public int [] DiceRoll { get; set; }
+        public int[] DiceRoll { get; set; }
         public bool IsMovingBack { get; set; }
         public int TurnsToSkip { get; set; } = 0;
         public string Name { get; set; }
+        public bool IsWinner { get; set; }
 
-        
 
         public void Move(int[] diceRoll)
         {
-            DiceRoll = diceRoll;
+            if (!diceRoll.Any(x => x < 0))
+            {
+                DiceRoll = diceRoll;
+            }
 
             if (TurnsToSkip > 0)
             {
@@ -43,13 +47,18 @@ namespace Ganzenbord.Business
             GameBoard board = GameBoard.GetSingleTonInstance();
             ISquare destinationSquare = board.GetSquare(destination);
             destinationSquare.HandlePlayer(this);
-            EndTurn();
+        }
+
+        public void RollTheDice()
+        {
+            Dice myDice = new Dice();
+            int[] result = myDice.RollTheDices();
+            Move(result);
         }
 
         public void SkipTurn(int skipT)
         {
             TurnsToSkip = skipT;
-            EndTurn();
         }
     }
 }

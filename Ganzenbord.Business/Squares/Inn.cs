@@ -4,9 +4,12 @@
     {
         public int Id { get; set; }
 
-        public Inn(int id)
+        private ILogger _logger;
+
+        public Inn(int id, ILogger logger)
         {
             Id = id;
+            _logger = logger;
         }
 
         public void HandlePlayer(IPlayer player)

@@ -4,13 +4,17 @@
     {
         public int Id { get; set; }
 
-        public StandardSquare(int id)
+        private ILogger _logger;
+
+        public StandardSquare(int id, ILogger logger)
         {
             Id = id;
+            _logger = logger;
         }
 
         public void HandlePlayer(IPlayer player)
         {
+            _logger.Log($"{player.Name} has landed on an empty square and is now on position: {player.Position}");
         }
     }
 }

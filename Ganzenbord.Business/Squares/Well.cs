@@ -2,12 +2,16 @@
 {
     internal class Well : ISquare
     {
-        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Id { get ; set; }
 
-        public Well(int id)
+        private ILogger _logger;
+
+        public Well(int id, ILogger logger)
         {
             Id = id;
+            _logger = logger;
         }
+
         public void HandlePlayer(IPlayer player)
         {
             throw new NotImplementedException();

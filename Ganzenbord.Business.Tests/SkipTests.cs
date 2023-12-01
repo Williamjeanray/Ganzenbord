@@ -14,8 +14,7 @@ namespace Ganzenbord.Business.Tests
             //Arrange
             IPlayer player = new Player();
             player.Position = 16;
-            player.DiceRoll[0] = 1;
-            player.DiceRoll[1] = 2;
+            player.DiceRoll = new int[] { 1, 2 };
 
             //Act
             player.Move(player.DiceRoll);

@@ -3,18 +3,25 @@ using Ganzenbord.Business.Squares;
 
 namespace Ganzenbord.Business
 {
-    public  class GameBoard
+    public class GameBoard
     {
-        //dependency, altijd boven de klasse
-        private  IFactory _factory = new SquareFactory();
+        private IFactory _factory;
 
+        //dependency, altijd boven de klasse
         private List<ISquare> squares;
 
-        private  int[] gooseIds = { 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 };
+        private int[] gooseIds = { 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 };
+
+        //singleTon stap 1 private constructor
+        private GameBoard()
+        {
+            _factory = new SquareFactory(new ConsoleLogger()); // TODO: BAD PRACTICE!!!
+            squares = FillsSquares();
+        }
 
         public static GameBoard GetSingleTonInstance()
         {
-            if (singleTonInstance == null) 
+            if (singleTonInstance == null)
             {
                 singleTonInstance = new GameBoard();
             }
@@ -24,13 +31,9 @@ namespace Ganzenbord.Business
         //singleTon stap 2 refer naar zichzelf
         private static GameBoard singleTonInstance;
 
-        //singleTon stap 1 private constructor
-        private GameBoard()
-        {
-            squares = FillsSquares();
-        }
 
-        private  List<ISquare> FillsSquares()
+
+        private List<ISquare> FillsSquares()
         {
             var mylist = new List<ISquare>();
             for (int i = 0; i < 64; i++)
@@ -74,14 +77,14 @@ namespace Ganzenbord.Business
             return mylist;
         }
 
-        public  ISquare GetSquare(int id)
+        public ISquare GetSquare(int id)
         {
             return squares[id];
         }
 
         public int GetEndPosition()
         {
-            return squares.Count -1;
+            return squares.Count - 1;
         }
     }
 }

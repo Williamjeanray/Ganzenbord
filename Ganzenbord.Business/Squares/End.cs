@@ -4,15 +4,18 @@
     {
         public int Id { get; set; }
 
-        public End(int id)
+        private ILogger _logger;
+
+        public End(int id, ILogger logger)
         {
             Id = id;
+            _logger = logger;
         }
 
         public void HandlePlayer(IPlayer player)
         {
-            player.MoveToPosition(0);
-            //Nog een vraag naar restart toevoegen
+            player.IsWinner = true;
+            _logger.Log($"{player.Name} has won!!!");
         }
     }
 }
