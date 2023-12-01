@@ -1,4 +1,5 @@
 ﻿using Ganzenbord.Business.Factory;
+using Ganzenbord.Business.Loggers;
 using Ganzenbord.Business.Squares;
 
 namespace Ganzenbord.Business
@@ -30,8 +31,6 @@ namespace Ganzenbord.Business
 
         //singleTon stap 2 refer naar zichzelf
         private static GameBoard singleTonInstance;
-
-
 
         private List<ISquare> FillsSquares()
         {

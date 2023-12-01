@@ -1,4 +1,7 @@
-﻿namespace Ganzenbord.Business.Tests
+﻿using Ganzenbord.Business.Loggers;
+using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Tests
 {
     internal class DiceRollTests
     {
@@ -25,7 +28,6 @@
             int[] dice = { 5, 4 };
             Game game = new Game(new ConsoleLogger());
 
-
             //Act
             game.StartGame();
 
@@ -34,6 +36,5 @@
             Assert.That(dice.Sum, Is.EqualTo(9));
             Assert.That(player1.Position, Is.EqualTo(26));
         }
-
     }
 }

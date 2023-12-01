@@ -1,7 +1,6 @@
 ﻿using Ganzenbord.Business.Squares;
-using System.Numerics;
 
-namespace Ganzenbord.Business
+namespace Ganzenbord.Business.Players
 {
     public class Player : IPlayer
     {
@@ -11,7 +10,6 @@ namespace Ganzenbord.Business
         public int TurnsToSkip { get; set; } = 0;
         public string Name { get; set; }
         public bool IsWinner { get; set; }
-
 
         public void Move(int[] diceRoll)
         {
@@ -32,7 +30,7 @@ namespace Ganzenbord.Business
 
                 if (destination > lastSquare)
                 {
-                    int overschot = (destination - lastSquare);
+                    int overschot = destination - lastSquare;
                     destination = lastSquare - overschot;
                     IsMovingBack = true;
                 }

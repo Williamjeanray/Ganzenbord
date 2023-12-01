@@ -1,4 +1,6 @@
-﻿namespace Ganzenbord.Business.Tests
+﻿using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Tests
 {
     public class GooseTest
     {
@@ -8,7 +10,7 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 3;
-            int[] dice = { 1, 1};
+            int[] dice = { 1, 1 };
 
             //Act
             player.Move(dice);
@@ -16,6 +18,7 @@
             //Assert
             Assert.That(player.Position, Is.EqualTo(7));
         }
+
         [Test]
         public void WhenSquareIsGooseThenRepeatMovementMultipleGoose()
         {

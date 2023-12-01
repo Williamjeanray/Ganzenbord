@@ -23,9 +23,7 @@
                 result[i] = RollTheDices();
             }
 
-
             return result;
         }
-
     }
 }

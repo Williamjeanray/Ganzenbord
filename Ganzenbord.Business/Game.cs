@@ -1,4 +1,6 @@
-﻿
+﻿using Ganzenbord.Business.Loggers;
+using Ganzenbord.Business.Players;
+
 namespace Ganzenbord.Business
 {
     public class Game
@@ -11,9 +13,10 @@ namespace Ganzenbord.Business
         }
 
         private int round;
-        public int Round { get { return round; } }
+        public int Round
+        { get { return round; } }
 
-        List<IPlayer> Players { get; set; } = new List<IPlayer>();
+        private List<IPlayer> Players { get; set; } = new List<IPlayer>();
 
         public void StartGame(int amountOfPlayers = 2)
         {

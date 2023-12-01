@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ganzenbord.Business.Players;
 
 namespace Ganzenbord.Business.Tests
 {
@@ -30,7 +26,6 @@ namespace Ganzenbord.Business.Tests
             player.Move(player.DiceRoll);
             Assert.That(player.Position, Is.EqualTo(22));
             Assert.That(player.TurnsToSkip, Is.EqualTo(0));
-
         }
     }
 }

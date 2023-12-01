@@ -1,8 +1,11 @@
-﻿namespace Ganzenbord.Business.Squares
+﻿using Ganzenbord.Business.Loggers;
+using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Squares
 {
     internal class Well : ISquare
     {
-        public int Id { get ; set; }
+        public int Id { get; set; }
 
         private ILogger _logger;
 

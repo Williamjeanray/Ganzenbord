@@ -1,4 +1,7 @@
-﻿namespace Ganzenbord.Business.Squares
+﻿using Ganzenbord.Business.Loggers;
+using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Squares
 {
     internal class StandardSquare : ISquare
     {

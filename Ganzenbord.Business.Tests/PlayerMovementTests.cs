@@ -1,4 +1,6 @@
-﻿namespace Ganzenbord.Business.Tests
+﻿using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Tests
 {
     internal class PlayerMovementTests
     {
@@ -9,7 +11,7 @@
 
             IPlayer player = new Player();
             player.Position = 7;
-            int[] dice = { 1,1 };
+            int[] dice = { 1, 1 };
 
             //Act
             player.Move(dice);
@@ -49,6 +51,7 @@
             //Assert
             Assert.That(player.Position, Is.EqualTo(12));
         }
+
         [Test]
         public void WhenPlayerOverschootsEndzoneWalkBackAmountOfExtraMovement()
         {

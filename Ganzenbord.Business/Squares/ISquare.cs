@@ -1,4 +1,6 @@
-﻿namespace Ganzenbord.Business.Squares
+﻿using Ganzenbord.Business.Players;
+
+namespace Ganzenbord.Business.Squares
 {
     public interface ISquare
     {

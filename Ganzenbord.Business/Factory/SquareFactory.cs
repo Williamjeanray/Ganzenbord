@@ -1,4 +1,5 @@
-﻿using Ganzenbord.Business.Squares;
+﻿using Ganzenbord.Business.Loggers;
+using Ganzenbord.Business.Squares;
 
 namespace Ganzenbord.Business.Factory
 {

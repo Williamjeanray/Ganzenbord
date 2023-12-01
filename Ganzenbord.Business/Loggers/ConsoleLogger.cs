@@ -1,4 +1,4 @@
-﻿namespace Ganzenbord.Business
+﻿namespace Ganzenbord.Business.Loggers
 {
     public class ConsoleLogger : ILogger
     {
