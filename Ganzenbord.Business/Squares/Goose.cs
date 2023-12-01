@@ -13,8 +13,8 @@
         {
             if (player.IsMovingBack)
             {
-                int reverse = -player.DiceRoll;
-                player.Move(reverse);
+                int[] negative = player.DiceRoll.Select(x => -x).ToArray();
+                player.Move(negative);
             }
             else
             {

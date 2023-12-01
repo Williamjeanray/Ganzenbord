@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ganzenbord.Business
+﻿namespace Ganzenbord.Business
 {
-    internal class Dice
+    public class Dice : IDice
     {
+        private Random rnd = new Random();
+
+        private int RollTheDices()
+        {
+            return rnd.Next(1, 7);
+        }
+
+        public int[] RollTheDices(int amountOfDices = 2)
+        {
+            if (amountOfDices < 1)
+            {
+                amountOfDices = 1;
+            }
+
+            int[] result = new int[amountOfDices];
+
+            for (int i = 0; i < amountOfDices; i++)
+            {
+                result[i] = RollTheDices();
+            }
+
+
+            return result;
+        }
+
     }
 }

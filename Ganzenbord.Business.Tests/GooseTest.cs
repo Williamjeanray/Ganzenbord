@@ -8,10 +8,10 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 3;
-            player.DiceRoll = 2;
+            int[] dice = { 1, 1};
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(7));
@@ -22,10 +22,10 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 1;
-            player.DiceRoll = 4;
+            int[] dice = { 2, 2 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(13));
@@ -37,10 +37,10 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 61;
-            player.DiceRoll = 6;
+            int[] dice = { 3, 3 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(53));
@@ -53,10 +53,10 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 62;
-            player.DiceRoll = 5;
+            int[] dice = { 2, 3 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(49));
@@ -69,17 +69,18 @@
             //Arrange
             IPlayer player = new Player();
             player.Position = 62;
-            player.DiceRoll = 5;
+            int[] dice = { 2, 3 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(49));
 
             // Now move player forward again after hitting a streak of bad luck.
-            player.DiceRoll = 2;
-            player.Move(player.DiceRoll);
+            dice[0] = 1;
+            dice[1] = 1;
+            player.Move(dice);
             Assert.That(player.Position, Is.EqualTo(51));
             Assert.False(player.IsMovingBack);
         }

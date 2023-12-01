@@ -9,13 +9,13 @@
 
             IPlayer player = new Player();
             player.Position = 7;
-            player.DiceRoll = 2;
+            int[] dice = { 1,1 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
-            Assert.AreEqual(11, player.Position);
+            Assert.That(player.Position, Is.EqualTo(11));
         }
 
         [Test]
@@ -25,10 +25,10 @@
 
             IPlayer player = new Player();
             player.Position = 1;
-            player.DiceRoll = 2;
+            int[] dice = { 1, 1 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(3));
@@ -41,10 +41,10 @@
 
             IPlayer player = new Player();
             player.Position = 4;
-            player.DiceRoll = 2;
+            int[] dice = { 1, 1 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(12));
@@ -56,10 +56,10 @@
 
             IPlayer player = new Player();
             player.Position = 61;
-            player.DiceRoll = 5;
+            int[] dice = { 3, 2 };
 
             //Act
-            player.Move(player.DiceRoll);
+            player.Move(dice);
 
             //Assert
             Assert.That(player.Position, Is.EqualTo(60));
